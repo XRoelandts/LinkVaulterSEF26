@@ -95,6 +95,10 @@ def test_issue_15():
     assert paginate(list(range(10)), page=1, per_page=3) == [0, 1, 2]
     with pytest.raises(ValueError):
         paginate([], page=1, per_page=0)
+    assert paginate(list(range(10)), page=2, per_page=3) == [3, 4, 5]
+    assert paginate(list(range(10)), page=4, per_page=3) == [9]
+    assert paginate(list(range(10)), page=5, per_page=3) == []
+    assert paginate([], page=1, per_page=3) == []
 
 
 def test_issue_16():
