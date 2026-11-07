@@ -10,7 +10,7 @@ def normalize_url(url: str) -> str:
 
     parts = urlsplit(url.strip())
     scheme = parts.scheme.lower()
-  
+
     # Lowercase only the host[:port]; userinfo (user:pass@) is case-sensitive.
     userinfo, at, hostport = parts.netloc.rpartition("@")
     netloc = f"{userinfo}{at}{hostport.lower()}"
